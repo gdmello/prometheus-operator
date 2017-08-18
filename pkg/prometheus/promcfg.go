@@ -124,6 +124,35 @@ func generateConfig(p *v1alpha1.Prometheus, mons map[string]*v1alpha1.ServiceMon
 		},
 	})
 
+	if len(p.Spec.RemoteWriteEndpoints) > 0 {
+		remoteWriteConfigs := make([]yaml.MapSlice, len(p.Spec.RemoteWriteEndpoints))
+		for _, url := range p.Spec.RemoteWriteEndpoints {
+			remoteWriteConfigs = append(remoteWriteConfigs, yaml.MapSlice {
+				{ Key:   "url", Value: url},
+			})
+		}
+
+		cfg = append(cfg, yaml.MapItem{
+			Key:   "remote_write",
+			Value: remoteWriteConfigs,
+		})
+	}
+
+	if len(p.Spec.RemoteReadEndpoints) > 0 {
+		remoteReadConfigs := make([]yaml.MapSlice, len(p.Spec.RemoteReadEndpoints))
+		for _, url := range p.Spec.RemoteReadEndpoints {
+			remoteReadConfigs = append(remoteReadConfigs, yaml.MapSlice {
+				{ Key:   "url", Value: url},
+			})
+		}
+
+		cfg = append(cfg, yaml.MapItem{
+			Key:   "remote_read",
+			Value: remoteReadConfigs,
+		})
+	}
+
+
 	return yaml.Marshal(cfg)
 }
 
