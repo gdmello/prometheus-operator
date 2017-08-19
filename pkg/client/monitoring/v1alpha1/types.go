@@ -104,8 +104,8 @@ type PrometheusSpec struct {
 	// EvaluationInterval string                    `json:"evaluationInterval"`
 	// Remote          RemoteSpec                 `json:"remote"`
 	// Sharding...
-	RemoteWriteEndpoints []RemoteWriteEndpoints `json"remoteWrite"`
-	RemoteReadEndpoints []RemoteReadEndpoints `json:"remoteRead"`
+	RemoteWriteEndpoints []RemoteWriteEndpoints `json:"remoteWrite,omitempty"`
+	RemoteReadEndpoints []RemoteReadEndpoints `json:"remoteRead,omitempty"`
 }
 
 
