@@ -5,7 +5,7 @@ metadata:
   labels:
     prometheus: k8s
 spec:
-  replicas: 2
+  replicas: 1
   version: v1.7.0
   serviceAccountName: prometheus-k8s
   serviceMonitorSelector:
@@ -27,3 +27,7 @@ spec:
     - namespace: monitoring
       name: alertmanager-main
       port: web
+  remoteWrite:
+    - url: http://192.168.1.1:10/write
+  remoteRead:
+    - url: http://192.168.1.1:10/read
