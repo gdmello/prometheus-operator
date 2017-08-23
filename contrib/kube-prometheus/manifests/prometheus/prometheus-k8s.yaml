@@ -28,6 +28,10 @@ spec:
       name: alertmanager-main
       port: web
   remoteWrite:
+    # URL to remote write adapter, see [example](https://github.com/prometheus/prometheus/tree/master/documentation/examples/remote_storage/remote_storage_adapter)
+    # available as a docker image - https://github.com/gdmello/prometheus-remote-storage
+    # The url below serves as an example only.
     - url: http://192.168.1.1:10/write
   remoteRead:
+    # The url below serves as an example only.
     - url: http://192.168.1.1:10/read
