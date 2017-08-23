@@ -110,11 +110,11 @@ type PrometheusSpec struct {
 
 
 type RemoteReadEndpoints struct {
-	Url string `json:"url"`
+	URL string `json:"url"`
 }
 
 type RemoteWriteEndpoints struct {
-	Url string `json:"url"`
+	URL string `json:"url"`
 }
 
 

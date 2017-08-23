@@ -128,7 +128,7 @@ func generateConfig(p *v1alpha1.Prometheus, mons map[string]*v1alpha1.ServiceMon
 		var remoteWriteConfigs []yaml.MapSlice
 		for _, rw := range p.Spec.RemoteWriteEndpoints {
 			remoteWriteConfigs = append(remoteWriteConfigs, yaml.MapSlice {
-				{ Key:   "url", Value: rw.Url},
+				{ Key:   "url", Value: rw.URL},
 			})
 		}
 
@@ -142,7 +142,7 @@ func generateConfig(p *v1alpha1.Prometheus, mons map[string]*v1alpha1.ServiceMon
 		var remoteReadConfigs []yaml.MapSlice
 		for _, rr := range p.Spec.RemoteReadEndpoints {
 			remoteReadConfigs = append(remoteReadConfigs, yaml.MapSlice {
-				{ Key:   "url", Value: rr.Url},
+				{ Key:   "url", Value: rr.URL},
 			})
 		}
 
