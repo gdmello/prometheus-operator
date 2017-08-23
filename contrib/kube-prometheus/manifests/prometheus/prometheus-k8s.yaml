@@ -5,7 +5,7 @@ metadata:
   labels:
     prometheus: k8s
 spec:
-  replicas: 1
+  replicas: 2
   version: v1.7.0
   serviceAccountName: prometheus-k8s
   serviceMonitorSelector:
